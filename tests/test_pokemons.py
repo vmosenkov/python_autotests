@@ -1,7 +1,7 @@
 import requests
 import pytest
-import sys  # Добавьте этот импорт
-from pathlib import Path  # И этот
+import sys 
+from pathlib import Path 
 
 sys.path.append(str(Path(__file__).parent.parent))
 
@@ -13,13 +13,13 @@ HEADERS = {
     'trainer_token' : TRAINER_TOKEN
 }
 
-
+# Проверка статус кода 200
 def test_status_code():
     response = requests.get(url = f'{BASE_URL}/trainers', params = {'trainer_id': TRAINER_ID})
     assert response.status_code == 200
 
 
-# Тест на проверку имени тренера
+# Провека имени
 @pytest.mark.parametrize(
     'key, value',[
         ('trainer_name', TRAINER_NAME),
